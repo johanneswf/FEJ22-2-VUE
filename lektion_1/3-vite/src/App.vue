@@ -24,6 +24,9 @@ import LoginForm from './components/LoginForm.vue';
         title: 'Hej från Vue',
         count: 0
       }
+    },
+    updated() {
+      console.log('app uppdated')
     }
   }
 </script>
