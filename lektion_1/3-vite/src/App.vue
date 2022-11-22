@@ -1,12 +1,24 @@
 <template>
-  <p>{{ title }}</p>
-  <p>{{ count }}</p>
-  <button v-on:click="count++">öka</button>
-  <button @click="count--">minska</button>
+  <Header :title="title" />
+  <div class="container mt-5">
+    <!-- <CardDeck /> -->
+    <!-- <ImageContainer /> -->
+    <LoginForm />
+  </div>
 </template>
 
 <script>
+import CardDeck from './components/CardDeck.vue';
+import Header from './components/Header.vue'
+import ImageContainer from './components/ImageContainer.vue';
+import LoginForm from './components/LoginForm.vue';
   export default {
+    components: {
+    Header,
+    CardDeck,
+    ImageContainer,
+    LoginForm
+},
     data() {
       return {
         title: 'Hej från Vue',
