@@ -1,12 +1,13 @@
 <template>
   <div class="wrapper">
-    <AppHeader />
-    <TodoList :todos="todos" />
+    <AppHeader @sort="sortTodos" />
+    <TodoList :todos="sortedTodos" @toggle-complete="handleToggleComplete" @delete-todo="handleDeleteTodo" />
     <AddTodoForm @add-todo="handleAddTodo" />
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 import AppHeader from './components/AppHeader.vue';
 import TodoList from './components/TodoList.vue';
 import AddTodoForm from './components/AddTodoForm.vue';
@@ -19,24 +20,62 @@ import AddTodoForm from './components/AddTodoForm.vue';
     },
     data() {
       return {
-        todos: [
-          { id: 1, title: 'Todo Item One', completed: false },
-          { id: 2, title: 'Todo Item Two', completed: true },
-          { id: 3, title: 'Todo Item Three', completed: false },
-          { id: 4, title: 'Todo Item Four', completed: true },
-          { id: 5, title: 'Todo Item Five', completed: false }
-        ]
+        todos: [],
+        sort: '',
+        apiUri: 'http://localhost:3000/todos'
       }
     },
     methods: {
-      handleAddTodo(title) {
-        const todo = {
-          id: Date.now(),
-          title,
-          completed: false
+      async fetchTodos() {
+        const res = await axios.get(this.apiUri)
+        this.todos = res.data
+      },
+      async handleAddTodo(title) {
+        // const todo = {
+        //   id: Date.now(),
+        //   title,
+        //   completed: false
+        // }
+        // this.todos.push(todo)
+        try {
+          const res = await axios.post(this.apiUri, { title, completed: false })
+          if(res.status !== 201) {
+            throw new Error(res.status, res.statusText);
+          }
+          this.todos.push(res.data)
+        } catch (err) {
+          console.log(err)
         }
-        this.todos.push(todo)
+      },
+      sortTodos(val) {
+        switch(val) {
+          case 'false':
+            this.sort = false
+            break         
+          case 'true':
+            this.sort = true
+            break
+          default:
+            this.sort = ''
+        }
+      },
+      handleToggleComplete(todo) {
+        todo.completed = !todo.completed
+      },
+      handleDeleteTodo(todo) {
+        this.todos = this.todos.filter(_todo => _todo.id !== todo.id)
       }
+    },
+    computed: {
+      sortedTodos() {
+        if(this.sort === '') {
+          return this.todos
+        }
+        return this.todos.filter(todo => todo.completed === this.sort)
+      }
+    },
+    created() {
+      this.fetchTodos()
     }
 }
 </script>

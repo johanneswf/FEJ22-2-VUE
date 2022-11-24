@@ -1,7 +1,7 @@
 <template>
   <div class="todo">
-    <p class="todo-title" :class="{done: todo.completed}">{{ todo.title }}</p>
-    <button><i class="fa-solid fa-trash-can"></i></button>
+    <p @click="$emit('toggle-complete')" class="todo-title" :class="{done: todo.completed}">{{ todo.title }}</p>
+    <button @click="$emit('delete-todo')"><i class="fa-solid fa-trash-can"></i></button>
   </div>
 </template>
 
