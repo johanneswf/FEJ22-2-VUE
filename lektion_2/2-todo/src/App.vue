@@ -3,7 +3,19 @@
     <AppHeader @sort="sortTodos" />
     <TodoList :sort="sort" :todos="todos" @toggle-complete="handleToggleComplete" @delete-todo="handleDeleteTodo" />
     <AddTodoForm @add-todo="handleAddTodo" />
-    <Modal v-if="showModal" @close-modal="showModal = false" />
+    <!-- <button class="btn btn-primary" @click="showModal2 = true">open modal</button> -->
+    <Modal v-if="showModal" title="Ooops" @close-modal="showModal = false" />
+
+    <!-- <Modal v-if="showModal2" title="Add new todo" @close-modal="showModal2 = false">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Add Todo" ref="titleInput" v-model="title">
+        <button class="btn btn-primary">ADD</button>
+      </div>
+      <template v-slot:links>
+        <a href="#">my website</a>
+        <a href="#">google</a>
+      </template>
+    </Modal> -->
   </div>
 </template>
 
@@ -26,7 +38,9 @@ import Modal from './components/Modal.vue';
         todos: [],
         sort: '',
         apiUri: 'http://localhost:3000/todos/',
-        showModal: false
+        showModal: false,
+        showModal2: false,
+        title: ''
       }
     },
     methods: {

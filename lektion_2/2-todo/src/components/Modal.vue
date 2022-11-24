@@ -3,11 +3,15 @@
     <div class="overlay" @click.self="$emit('close-modal')">
       <div class="modal">
         <div class="modal_header">
-          <h2>Whoops</h2>
+          <h2>{{ title }}</h2>
         </div>
         <div class="modal_body">
-          <p>You need to complete the todo first</p>
+          <slot>
+            <p>You need to complete the todo first</p>
+          </slot>
           <button class="btn btn-primary" @click="$emit('close-modal')">Close</button>
+          <!-- <hr> -->
+          <slot name="links"></slot>
         </div>
       </div>
     </div>
@@ -16,6 +20,7 @@
 
 <script>
   export default {
+    props: ['title'],
     emits: ['close-modal']
   }
 </script>
@@ -45,8 +50,10 @@
   }
   .modal_body {
     padding: 2rem;
+    /* margin-bottom: 1rem; */
   }
   .btn{
     margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 </style>
