@@ -1,8 +1,9 @@
 <template>
   <div class="wrapper">
     <AppHeader @sort="sortTodos" />
-    <TodoList :todos="sortedTodos" @toggle-complete="handleToggleComplete" @delete-todo="handleDeleteTodo" />
+    <TodoList :sort="sort" :todos="todos" @toggle-complete="handleToggleComplete" @delete-todo="handleDeleteTodo" />
     <AddTodoForm @add-todo="handleAddTodo" />
+    <Modal v-if="showModal" @close-modal="showModal = false" />
   </div>
 </template>
 
@@ -11,18 +12,21 @@ import axios from 'axios'
 import AppHeader from './components/AppHeader.vue';
 import TodoList from './components/TodoList.vue';
 import AddTodoForm from './components/AddTodoForm.vue';
+import Modal from './components/Modal.vue';
 
   export default {
     components: { 
       AppHeader,
       TodoList,
-      AddTodoForm
+      AddTodoForm,
+      Modal
     },
     data() {
       return {
         todos: [],
         sort: '',
-        apiUri: 'http://localhost:3000/todos'
+        apiUri: 'http://localhost:3000/todos/',
+        showModal: false
       }
     },
     methods: {
@@ -59,11 +63,35 @@ import AddTodoForm from './components/AddTodoForm.vue';
             this.sort = ''
         }
       },
-      handleToggleComplete(todo) {
-        todo.completed = !todo.completed
+      async handleToggleComplete(todo) {
+        // todo.completed = !todo.completed
+        try {
+          const res = await axios.patch(this.apiUri + todo.id, { completed: !todo.completed} )
+          if(res.status !== 200) {
+            throw new Error(res.status, res.statusText)
+          }
+          todo.completed = !todo.completed
+        } catch(err) {
+          console.log(err)
+        }
       },
-      handleDeleteTodo(todo) {
-        this.todos = this.todos.filter(_todo => _todo.id !== todo.id)
+      async handleDeleteTodo(todo) {
+        // this.todos = this.todos.filter(_todo => _todo.id !== todo.id)
+        if(!todo.completed) {
+          // visa ett fel
+          this.showModal = true
+          return
+        }
+        try {
+          const res = await axios.delete(this.apiUri + todo.id)
+          if(res.status !== 200) {
+            throw new Error(res.status, res.statusText)
+          }
+          this.todos = this.todos.filter(_todo => _todo.id !== todo.id)
+          
+        } catch (err) {
+          
+        }
       }
     },
     computed: {

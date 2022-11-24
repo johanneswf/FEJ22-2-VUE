@@ -3,27 +3,27 @@
     {
       "id": 1,
       "title": "test todo 1",
-      "completed": false
-    },
-    {
-      "id": 2,
-      "title": "test todo 2",
-      "completed": false
-    },
-    {
-      "title": "test",
-      "completed": false,
-      "id": 3
+      "completed": true
     },
     {
       "title": "asdasd",
-      "completed": false,
+      "completed": true,
       "id": 4
     },
     {
       "title": "ta rast",
       "completed": false,
       "id": 5
+    },
+    {
+      "title": "asdasd",
+      "completed": true,
+      "id": 6
+    },
+    {
+      "title": "sfsaf",
+      "completed": false,
+      "id": 8
     }
   ]
 }

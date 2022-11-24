@@ -2,7 +2,11 @@
   <div class="output">
     <div v-if="todos.length">
       <TransitionGroup name="fade-slide">
-        <Todo v-for="todo in todos" :todo="todo" :key="todo.id" @toggle-complete="$emit('toggle-complete', todo)" @delete-todo="$emit('delete-todo', todo)" />
+        <div v-for="todo in todos" :key="todo.id">
+          <Todo v-if="sort === ''" :todo="todo" @toggle-complete="$emit('toggle-complete', todo)" @delete-todo="$emit('delete-todo', todo)" />
+          
+          <Todo v-else-if="todo.completed === sort" :todo="todo" @toggle-complete="$emit('toggle-complete', todo)" @delete-todo="$emit('delete-todo', todo)" />
+        </div>
       </TransitionGroup>
     </div>
     <p v-else>No todos to show</p>
@@ -14,7 +18,7 @@ import Todo from './Todo.vue';
 
   export default {
     components: { Todo },
-    props: ['todos']
+    props: ['todos', 'sort']
 }
 </script>
 
@@ -32,7 +36,7 @@ import Todo from './Todo.vue';
 
   .fade-slide-enter-from {
     opacity: 0;
-    transform: translateX(-40px);
+    transform: translateY(-40px);
   }
   .fade-slide-leave-to {
     opacity: 0;

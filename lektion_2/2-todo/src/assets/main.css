@@ -38,6 +38,7 @@ body * {
 }
 
 .wrapper {
+  position: relative;
   background-color: #ffffff;
   max-width: 550px;
   margin: 3rem auto;
