@@ -1,0 +1,6 @@
+{
+  "todos": [
+    { "id": 1, "title": "test todo 1", "completed": false },
+    { "id": 2, "title": "test todo 2", "completed": false }
+  ]
+}

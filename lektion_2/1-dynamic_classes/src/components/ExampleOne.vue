@@ -2,7 +2,7 @@
   <div>
     <h2 :class="{ green: isGreen, red: false }" >EN TEXT</h2>
 
-    <div @click="available = !available" :class="{available: available}" >
+    <div @click="isAvailable = !isAvailable" :class="{available: isAvailable}" >
       <span>Joakim</span>
     </div>
 
@@ -24,7 +24,7 @@
       return {
         isGreen: true,
         error: true,
-        available: false
+        isAvailable: false
       }
     }
   }
