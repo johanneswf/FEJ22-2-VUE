@@ -1,9 +1,6 @@
 <template>
   <div class="output">
-    <Todo />
-    <Todo />
-    <Todo />
-    <Todo />
+    <Todo v-for="todo in todos" :todo="todo" :key="todo.id" />
   </div>
 </template>
 
@@ -11,7 +8,8 @@
 import Todo from './Todo.vue';
 
   export default {
-    components: { Todo }
+    components: { Todo },
+    props: ['todos']
 }
 </script>
 

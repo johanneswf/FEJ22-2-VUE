@@ -113,10 +113,7 @@ body * {
   background-color: hsl(0, 68%, 25%);
 }
 
-.completed {
-  color: #a7a7a7;
-  text-decoration: line-through;
-}
+
 .error {
   text-align: center;
   margin-bottom: .5rem;
