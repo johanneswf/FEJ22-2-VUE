@@ -38,6 +38,9 @@
     list-style: none;
     gap: 2rem;
   }
+  li:last-child {
+    margin-right: -1rem;
+  }
   a {
     text-decoration: none;
     color: #fff;
