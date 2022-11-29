@@ -21,7 +21,7 @@
     created() {
       // this.getProduct(this.$route.params.id)
       // this.getProduct(this.id)
-      fetch('http://localhost:9999/api/todos/' + this.id)
+      fetch('https://jsonplaceholder.typicode.com/todos/' + this.id)
         .then(response => response.json())
         .then(data => this.todo = data)
     }
