@@ -4,7 +4,7 @@
       <h1>LOGO</h1>
       <ul class="d-flex">
         <li><RouterLink to="/" class="link">Home</RouterLink></li>
-        <li><RouterLink to="/about" class="link">About</RouterLink></li>
+        <li><RouterLink :to="{ name: 'about' }" class="link">About</RouterLink></li>
       </ul>
     </div>
   </nav>
@@ -26,11 +26,8 @@
     list-style: none;
     gap: 1rem;
   }
-  .link {
-    text-decoration: none;
-    color: #fff;
-  }
-  .link:hover {
-    color: #d9d9d9;
+
+  .router-link-active {
+    text-decoration: underline;
   }
 </style>
