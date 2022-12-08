@@ -13,7 +13,7 @@
       "title": "Blog Post 2",
       "body": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis aperiam pariatur amet nisi eum praesentium placeat, unde officia excepturi distinctio rerum, molestias voluptate, magni fuga doloremque maxime recusandae illo explicabo?",
       "author": "Hans",
-      "categories": ["Travel", "Food"],
+      "categories": ["IT", "Frontend", "Travel"],
       "imgUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
     }
   ]
