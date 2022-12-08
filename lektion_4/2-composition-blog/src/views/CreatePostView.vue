@@ -88,7 +88,12 @@
     }
 
 
-    if(errors.value.title || errors.value.body || errors.value.imgUrl || errors.value.categories || errors.value.author) {
+    // if(errors.value.title || errors.value.body || errors.value.imgUrl || errors.value.categories || errors.value.author) {
+    //   console.log('fel i formuläret')
+    //   return
+    // }
+
+    if(Object.values(errors.value).includes(true)) {
       console.log('fel i formuläret')
       return
     }
