@@ -15,7 +15,7 @@
       </ul>
       <p>Author: {{ post.author }}</p>
     </div>
-    <p>{{ post.body }}</p>
+    <p class="body">{{ post.body }}</p>
   </div>
 </template>
 
@@ -68,5 +68,8 @@ import Loader from '../components/Loader.vue';
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .body {
+    white-space: pre;
   }
 </style>

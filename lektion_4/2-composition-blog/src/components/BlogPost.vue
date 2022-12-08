@@ -28,7 +28,6 @@
 <script setup>
   import { computed } from 'vue'
   const props = defineProps(['post'])
-  console.log(props.post)
 
   const bodySnippet = computed(() => {
     return props.post.body.substring(0, 75) + '...'
@@ -59,6 +58,7 @@
     padding: 1rem 2rem;
     position: relative;
   }
+ 
   .content_title {
     text-align: center;
   }
