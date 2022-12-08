@@ -5,7 +5,10 @@
       "title": "Blog Post 1",
       "body": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis aperiam pariatur amet nisi eum praesentium placeat, unde officia excepturi distinctio rerum, molestias voluptate, magni fuga doloremque maxime recusandae illo explicabo?",
       "author": "Joakim",
-      "categories": ["Travel", "Food"],
+      "categories": [
+        "Travel",
+        "Food"
+      ],
       "imgUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
     },
     {
@@ -13,8 +16,24 @@
       "title": "Blog Post 2",
       "body": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis aperiam pariatur amet nisi eum praesentium placeat, unde officia excepturi distinctio rerum, molestias voluptate, magni fuga doloremque maxime recusandae illo explicabo?",
       "author": "Hans",
-      "categories": ["IT", "Frontend", "Travel"],
+      "categories": [
+        "IT",
+        "Frontend",
+        "Travel"
+      ],
       "imgUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+    },
+    {
+      "title": "Hur fungerar composition API",
+      "body": "det här är ett inlägg om hur vue composition API fungerar!\nLorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam provident quos quod cumque praesentium debitis voluptate nesciunt nisi quaerat iusto id consectetur quisquam, repellendus, nobis tempore tempora vero eum atque! Consectetur odio deserunt quas! Magnam eius, odit asperiores voluptatum accusantium, labore quam sunt ea nihil officiis quos esse mollitia quisquam impedit. Obcaecati vero qui optio earum laborum sit nam explicabo dicta rerum eaque mollitia veniam autem, asperiores libero hic consequatur expedita cumque similique ipsa, in deleniti amet, eos voluptas! Eos earum quia reprehenderit est accusantium. Nisi ad dignissimos cum porro alias dicta possimus saepe? Quaerat nisi modi corrupti expedita eos blanditiis quisquam eligendi architecto rerum aspernatur dolores voluptate consequuntur, quasi iusto atque! Unde illo, adipisci sunt, ipsum sequi cupiditate quidem sint nemo, laborum facere eaque voluptatum. Pariatur, tempora omnis at perspiciatis cumque minus repudiandae enim. Nostrum doloremque sit aut commodi reiciendis. Suscipit, maxime. Voluptates corrupti tempore velit nesciunt nobis assumenda quaerat nulla sequi, iste alias aut dicta quo repellat quibusdam neque ab cumque! Sequi minima illo excepturi facere vel dignissimos deserunt, doloremque debitis ex totam, beatae suscipit maxime eligendi dolores alias praesentium corrupti similique nostrum molestiae hic commodi optio. Excepturi autem odit magnam architecto quis quos voluptatem veniam pariatur maiores modi unde deserunt nisi cumque iste et, iusto at nobis soluta illum qui doloribus corporis accusantium? Totam voluptatum molestias commodi mollitia aperiam porro repellendus? Et voluptas consectetur vel necessitatibus doloribus perspiciatis ipsa unde, cupiditate doloremque molestias laborum iste a quam! Eaque pariatur quam dignissimos suscipit voluptatum amet. Id, expedita autem. Sapiente tenetur nesciunt vero reiciendis dicta corporis expedita veritatis cumque repudiandae necessitatibus at corrupti omnis voluptatum tempora, mollitia sequi, laboriosam sed modi asperiores. Porro placeat facere, cum consectetur quisquam ullam vitae nostrum libero beatae fugiat doloremque. Magni id temporibus labore voluptatibus odio, vitae maxime praesentium. Fugit architecto voluptate temporibus aliquam quo, cumque ratione molestiae repellendus quod porro, possimus pariatur suscipit quaerat voluptas voluptatum, adipisci assumenda. Doloremque, porro aspernatur? Adipisci, excepturi? Tempora eum ullam fugit ab velit reprehenderit repudiandae aliquam voluptas voluptatum nobis, sunt libero sit blanditiis adipisci nemo fuga repellat molestias numquam ducimus debitis vel ex iste voluptates dolorum. Explicabo, sed, saepe id nulla, atque optio quam quo adipisci nihil deserunt ullam repellat molestias quasi enim. Soluta magnam consectetur, vero esse ut blanditiis quis enim quae laudantium dolorem maxime deserunt laboriosam excepturi doloribus magni modi aperiam commodi nam ea vitae. Quisquam facilis voluptas atque at molestiae commodi? Nesciunt voluptates nisi dolore eius maxime laudantium eaque doloribus dolores animi fuga doloremque molestias officia id incidunt, placeat atque provident ipsum recusandae esse quas distinctio veritatis libero tempore. Harum debitis beatae exercitationem consequatur minus sunt hic est laudantium modi unde ut vitae pariatur cumque reiciendis, explicabo praesentium, omnis eveniet, iure totam sint natus magni esse distinctio delectus. Fugit est dignissimos laboriosam repellendus officiis, quae animi eius expedita molestias deserunt vero sunt ut nisi omnis ipsa ullam, placeat voluptatum molestiae laborum alias optio veritatis ducimus dolorum. Deserunt nulla laboriosam quasi voluptatibus assumenda amet quidem aliquam, sunt repellat explicabo voluptatum fuga reprehenderit non beatae delectus.",
+      "imgUrl": "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80",
+      "categories": [
+        "IT",
+        "Frontend",
+        "Vue"
+      ],
+      "author": "Joakim",
+      "id": "cbukrlz"
     }
   ]
 }
