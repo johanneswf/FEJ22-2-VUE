@@ -1,15 +1,19 @@
 <template>
   <div>
-    home
+    <Suspense>
+      <PostsList />
+
+      <template #fallback>
+        <Loader />
+      </template>
+    </Suspense>
   </div>
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+  import Loader from '../components/Loader.vue';
+import PostsList from '../components/PostsList.vue'
 
-  const posts = ref([])
-
-  
 
 </script>
 
