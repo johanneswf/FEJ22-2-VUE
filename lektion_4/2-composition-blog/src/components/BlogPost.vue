@@ -11,7 +11,8 @@
         </ul>
         <p>Author: {{ post.author }}</p>
       </div>
-      <p class="content_body">{{ bodySnippet }}</p>
+      <!-- <p class="content_body">{{ bodySnippet }}</p> -->
+      <p class="content_body" v-html="bodySnippet" ></p>
       <RouterLink class="btn btn-primary bottom-right" :to="{ name: 'details', params: { id: post.id }}">Read more</RouterLink>
     </div>
   </div>
@@ -27,10 +28,11 @@
 </script> -->
 <script setup>
   import { computed } from 'vue'
+  import DOMpurify from 'dompurify'
   const props = defineProps(['post'])
 
   const bodySnippet = computed(() => {
-    return props.post.body.substring(0, 75) + '...'
+    return DOMpurify.sanitize(props.post.body.substring(0, 75)) + '...'
   })
 
 </script>

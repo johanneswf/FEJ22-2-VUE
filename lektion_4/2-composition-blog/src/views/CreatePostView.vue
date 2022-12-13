@@ -15,11 +15,12 @@
         <p class="error" v-if="errors.imgUrl">Please enter an image url</p>
       </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="body" class="form-label">Content: </label>
         <textarea class="form-control" id="body" v-model.trim="post.body"></textarea>
         <p class="error" v-if="errors.body">Please enter some content</p>
-      </div>
+      </div> -->
+      <QuillEditor theme="snow" :toolbar="TOOLBAR_OPTIONS" ref="quill" />
       
       <p class="form-label">Categories: </p>
       <div class="form-group">
@@ -55,6 +56,20 @@
   import axios from 'axios'
   import { ref } from 'vue'
   import { useRouter } from 'vue-router';
+  import { QuillEditor } from '@vueup/vue-quill'
+  import '@vueup/vue-quill/dist/vue-quill.snow.css'
+
+  const TOOLBAR_OPTIONS = [
+    ['bold', 'italic', 'underline'],
+    ['image'],
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+    [{ 'color': [] }, { 'background': [] }],
+    [{ 'font': [] }],
+    [{ 'align': [] }],
+    ['clean']
+  ]
+
+  const quill = ref(null)
 
   const router = useRouter()
 
@@ -76,6 +91,9 @@
 
   const handleSubmit = async () => {
     
+    // console.log(quill.value.getHTML())
+    post.value.body = quill.value.getHTML()
+
     errors.value.title = !post.value.title ? true : false
     errors.value.body = !post.value.body ? true : false
     errors.value.imgUrl = !post.value.imgUrl ? true : false
@@ -93,6 +111,11 @@
     //   return
     // }
 
+
+    // NY KOD!
+    /* det här kommer att göra om alla keys i ett objekt till en array, sen kollar jag bara om den  
+      arrayen innehåller ett true värde. Så slipper man göra den långa if satsen som vi gjorde ovan
+    */
     if(Object.values(errors.value).includes(true)) {
       console.log('fel i formuläret')
       return

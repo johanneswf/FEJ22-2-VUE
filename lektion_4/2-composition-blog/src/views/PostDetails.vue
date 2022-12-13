@@ -15,7 +15,8 @@
       </ul>
       <p>Author: {{ post.author }}</p>
     </div>
-    <p class="body">{{ post.body }}</p>
+    <!-- <p class="body">{{ post.body }}</p> -->
+    <div class="body" v-html="DOMpurify.sanitize(post.body)"></div>
   </div>
 </template>
 
@@ -24,6 +25,7 @@ import { useRoute } from 'vue-router';
 import { ref } from 'vue'
 import axios from 'axios'
 import Loader from '../components/Loader.vue';
+import DOMpurify from 'dompurify'
 
   const { params: {id} } = useRoute()
   const post = ref(null)
@@ -38,7 +40,7 @@ import Loader from '../components/Loader.vue';
       if(res.status !== 200) {
         throw new Error(res.statusText)
       }
-      console.log(res.data)
+      // console.log(res.data)
       post.value = res.data
       loading.value = false
 
@@ -70,6 +72,6 @@ import Loader from '../components/Loader.vue';
     object-fit: cover;
   }
   .body {
-    white-space: pre;
+    /* white-space: pre; */
   }
 </style>

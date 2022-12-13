@@ -64,3 +64,15 @@ body {
   border-radius: 100vh;
   cursor: pointer;
 }
+
+.ql-toolbar {
+  background-color: rgb(244, 244, 244);
+  border-radius: .5em .5em 0 0;
+}
+.ql-container {
+  background-color: #fff;
+  margin-bottom: 2rem;
+  height: 300px;
+  border-radius: 0 0 .5em .5em;
+
+}
