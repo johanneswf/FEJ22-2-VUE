@@ -11,7 +11,8 @@
     </div>
     <div class="content_info mb-1">
       <ul class="content_list">
-        <li v-for="(cat, index) in post.categories" :key="index">{{ cat }}</li>
+        <!-- <li v-for="(cat, index) in post.categories" :key="index">{{ cat }}</li> -->
+        <Tag v-for="(cat, index) in post.categories" :key="index" :category="cat" />
       </ul>
       <p>Author: {{ post.author }}</p>
     </div>
@@ -21,6 +22,7 @@
 </template>
 
 <script setup>
+import Tag from '../components/Tag.vue'
 import { useRoute } from 'vue-router';
 import { ref } from 'vue'
 import axios from 'axios'

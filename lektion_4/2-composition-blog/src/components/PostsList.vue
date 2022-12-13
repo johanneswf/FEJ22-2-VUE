@@ -41,31 +41,46 @@ import BlogPost from './BlogPost.vue'
   getPosts()
 </script> -->
 <script setup>
-import { ref } from 'vue'
+import { ref, watch, computed } from 'vue'
 import axios from 'axios'
-import Loader from './Loader.vue'
 import BlogPost from './BlogPost.vue'
-  //http://localhost:3000/posts
+import { useRoute } from 'vue-router';
+  
+  const route = useRoute()
+
   const posts = ref([])
   const error = ref(null)
-  const loading = ref(false)
 
-    loading.value = true
+  const getPosts = async () => {
     try {
       error.value = null
-      const res = await axios.get('http://localhost:3000/posts')
+
+      const url = route.query.searchQuery 
+      ? `http://localhost:3000/posts?q=${route.query.searchQuery}`
+      : 'http://localhost:3000/posts'
+
+      // const url = 'http://localhost:3000/posts'
+
+      const res = await axios.get(url)
       if(res.status !== 200) {
         throw new Error(res.statusText)
       }
 
       posts.value = res.data
-      loading.value = false
+
     } catch (err) {
       console.log(err.message)
       error.value = "Det gick inte att hämta inläggen"
-      loading.value = false
     }
+  }
+  await getPosts()
+
+  // const filteredPosts = computed(() => {
+  //   return posts.value.filter(post => post.categories.includes(route.query.searchQuery))
+  // })
     
+  // funktionen i början kallas för att vi gör en getter
+  watch(() => route.query, getPosts)
 
 </script>
 

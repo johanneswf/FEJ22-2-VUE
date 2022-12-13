@@ -7,7 +7,8 @@
       <h2 class="content_title mb-1">{{ post.title }}</h2>
       <div class="content_info mb-1">
         <ul class="content_list">
-          <li v-for="(cat, index) in post.categories" :key="index">{{ cat }}</li>
+          <!-- <li v-for="(cat, index) in post.categories" :key="index">{{ cat }}</li> -->
+          <Tag v-for="(cat, index) in post.categories" :key="index" :category="cat" />
         </ul>
         <p>Author: {{ post.author }}</p>
       </div>
@@ -27,6 +28,7 @@
   }
 </script> -->
 <script setup>
+  import Tag from './Tag.vue'
   import { computed } from 'vue'
   import DOMpurify from 'dompurify'
   const props = defineProps(['post'])
